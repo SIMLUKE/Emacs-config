@@ -15,7 +15,7 @@
 (require 'bind-key)
 
 ;; Load additional Elisp files
-(setq custom-lisp-dir "~/.emacs.default/custom/")
+(setq custom-lisp-dir "~/.emacs.d/custom/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (directory-files custom-lisp-dir t "^[^#].*el$"))
 
