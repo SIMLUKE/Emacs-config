@@ -1,3 +1,4 @@
+
 ;; Define package archives
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -14,22 +15,27 @@
   (require 'use-package))
 (require 'bind-key)
 
-;; Load additional Elisp files
-(setq custom-lisp-dir "~/.emacs.default/custom/")
-(add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (directory-files custom-lisp-dir t "^[^#].*el$"))
+(setq-default c-basic-offset 4
+              indent-tabs-mode nil
+              tab-width 4)
+
+(defun my-c-mode-hook ()
+  (setq-local tab-width 4)
+  (setq-local indent-tabs-mode nil))
+
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+(add-hook 'c++-mode-hook 'my-c-mode-hook)
 
 ;; Set up vterm
 (use-package vterm
   :ensure t)
 
-(defun my-open-vterm-in-frame ()
-  "Open vterm in a new frame."
+(defun my-open-vterm ()
   (interactive)
-  (make-frame '((name . "VTerm") (width . 100) (height . 30)))
-  (vterm "*vterm*"))
-
-(global-set-key (kbd "C-c t") 'my-open-vterm-in-frame)
+  (split-window-right)
+  (windmove-right)
+  (vterm))
+(global-set-key (kbd "C-c t") 'my-open-vterm)
 
 ;; Set up lsp-mode
 (use-package lsp-mode
@@ -57,7 +63,8 @@
 ;; Set up Treemacs
 (use-package treemacs
   :ensure t
-)
+  )
+(treemacs)
 ;; Set up ido
 (use-package ido
   :ensure t
@@ -113,3 +120,11 @@
 ;; fixes to problems
 (setq default-frame-alist '((undecorated . t) (inhibit-double-buffering . t)))
 (setq ring-bell-function 'ignore)
+(add-hook 'emacs-startup-hook (lambda ()
+                                (when (get-buffer "*scratch*")
+                                  (kill-buffer "*scratch*"))))
+
+;; Load additional Elisp files
+(setq custom-lisp-dir "~/.emacs.default/custom/")
+(add-to-list 'load-path custom-lisp-dir)
+(mapc 'load (directory-files custom-lisp-dir t "^[^#].*el$"))

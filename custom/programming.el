@@ -1,8 +1,3 @@
-;; sets up tab
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-
 ;; nukes trailling spaces
 (add-hook 'before-save-hook 'my-prog-nuke-trailing-whitespace)
 (defun my-prog-nuke-trailing-whitespace ()
