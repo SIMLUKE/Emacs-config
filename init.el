@@ -26,6 +26,16 @@
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 (add-hook 'c++-mode-hook 'my-c-mode-hook)
 
+;; theme
+(use-package vscode-dark-plus-theme
+  :ensure t
+  :config
+  (load-theme 'vscode-dark-plus t))
+(setq vscode-dark-plus-box-org-todo nil)
+(setq vscode-dark-plus-scale-org-faces nil)
+(setq vscode-dark-plus-invert-hl-todo nil)
+(setq vscode-dark-plus-render-line-highlight 'line)
+
 ;; Set up vterm
 (use-package vterm
   :ensure t)
@@ -34,15 +44,18 @@
   (interactive)
   (split-window-right)
   (windmove-right)
-  (vterm))
+  (vterm (generate-new-buffer-name "vterm")))
 (global-set-key (kbd "C-c t") 'my-open-vterm)
 
 ;; Set up lsp-mode
 (use-package lsp-mode
   :ensure t
   :hook (prog-mode . lsp)
-  :commands lsp)
-
+  :commands lsp
+  :init
+  (setq lsp-clients-clangd-executable "/usr/bin/clangd")
+  :config
+  )
 ;; Set up which-key
 (use-package which-key
   :ensure t
@@ -62,9 +75,13 @@
 
 ;; Set up Treemacs
 (use-package treemacs
-  :ensure t
-  )
+  :ensure t)
 (treemacs)
+(with-eval-after-load 'treemacs
+  (defun treemacs-ignore-gitignore (file _)
+    (string= file ".gitignore"))
+  (push #'treemacs-ignore-gitignore treemacs-ignored-file-predicates))
+
 ;; Set up ido
 (use-package ido
   :ensure t
@@ -94,27 +111,16 @@
   :ensure t
   :init (global-flycheck-mode))
 
-;; Enable smooth scrolling
+;; Enable cool scrolling
 (setq scroll-margin 5
       scroll-conservatively 9999
       scroll-step 1)
 
-;; Use the Spacemacs theme
-(load-theme 'spacemacs-dark t)
-
 ;; End of Emacs configuration
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(spacemacs yasnippet use-package treemacs-magit spacemacs-theme projectile org-plus-contribmaterial-theme helm-xref helm-lsp flycheck dashboard dap-mode company-shell company-c-headers)))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  )
 
 ;; fixes to problems
@@ -124,7 +130,8 @@
                                 (when (get-buffer "*scratch*")
                                   (kill-buffer "*scratch*"))))
 
-;; Load additional Elisp files
+;; Load additional lisp files
 (setq custom-lisp-dir "~/.emacs.default/custom/")
 (add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (directory-files custom-lisp-dir t "^[^#].*el$"))
+(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+
