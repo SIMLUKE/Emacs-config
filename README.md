@@ -2,6 +2,9 @@
 >[!CAUTION]
 >Please read this page carefully, you need to change your way of using emacs in oder to maximize the potential of this config.
 
+## Install
+Just execute my script bro (will take some time)
+
 ## Emacs Daemons
 ### Quick explenation
 This config was made in order to run on daemons, this allows emacs to be instantly opened once the daemon is started, doing otherwise would be stupid.
