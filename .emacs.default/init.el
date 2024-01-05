@@ -127,10 +127,6 @@
   (setq lsp-ui-doc-show-with-cursor t)
   )
 ;; Set up Flycheck
-(use-package flycheck_pos-tip
-  :defer t
-  :hook (lsp-mode . flycheck-mode)
-  )
 (use-package flycheck
   :ensure t
   :init
@@ -138,8 +134,13 @@
   )
 (if (not window-system)
     (progn
+      (use-package flycheck-posframe
+        :ensure t
+        :after flycheck
+        )
       )
-  (use-package flycheck-posframe
+  (progn
+    (use-package flycheck-posframe
     :ensure t
     :after flycheck
     :config
@@ -147,23 +148,19 @@
     (setq flycheck-posframe-error-prefix " ")
     (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
     )
-  (set-face-attribute 'flycheck-posframe-error-face
-                      nil
-                      :inherit nil
-                      :foreground "red")
-
-  (set-face-attribute 'flycheck-posframe-warning-face
-                    nil
-                    :foreground "orange")
-
-  (set-face-attribute 'flycheck-posframe-info-face
-                      nil
+    (set-face-attribute 'flycheck-posframe-error-face
+			nil
+			:inherit nil
+			:foreground "red")
+    (set-face-attribute 'flycheck-posframe-warning-face
+			nil
+			:foreground "orange")
+    (set-face-attribute 'flycheck-posframe-info-face
+			nil
                       :foreground "blue")
-
-  (set-face-attribute 'flycheck-posframe-border-face
-                      nil
-                      :foreground "#dc752f")
-  (progn
+    (set-face-attribute 'flycheck-posframe-border-face
+			nil
+			:foreground "#dc752f")
     ))
 ;; Company mode for auto-completion
 (use-package company
@@ -235,11 +232,11 @@
   :bind ("C-x g" . magit-status))
 
 ;;; Load additional lisp files
-(setq custom-lisp-dir "~/.emacs.new/custom/")
+(setq custom-lisp-dir "~/.emacs.default/custom/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
-(setq custom-lisp-dir "~/.emacs.new/epitech/")
+(setq custom-lisp-dir "~/.emacs.default/epitech/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 

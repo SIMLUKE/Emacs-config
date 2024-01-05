@@ -15,18 +15,17 @@ This config was made in order to run on daemons, this allows emacs to be instant
 3. Tiny instance, this config runs on the "emacs tiny" daemon, starting an instance like the previous would be stupid, you could use it like this `emacsclient -c -s tiny "file"`
 
 >[!TIP]
-<<<<<<< HEAD
->I would HIGHLY suggest you add this code to your ".zshrc" or ".bashrc" config :
->
-=======
->I would **HIGHLY** suggest you add this code to your ".zshrc" or ".bashrc" config :
->>>>>>> f1858c7d6695a5bb34954e31c1bc5ab7d97755e7
+>I would **HIGHLY** suggest you add this code to your ".bashrc" config :
 >```
 >alias ne="emacsclient -nw -s tiny"
->alias VSemacs="emacsclient -c"
+>alias VSemacs="emacsclient -nw"
 >```
+>Or in a .zshrc config
+>alias ne "emacsclient -nw -s tiny"
+>alias VSemacs "emacsclient -nw"
 >
 >Use ne _file_ to open a file, and VSemacs to start the vscode like emacs
+>(for user with emacs gui only, DM me for config)
 
 ## Keybings
 If you are unfamiliar with emacs's base keybindings i would suggest reading this : [emacs cheatsheet](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). (please use ctr-y, ctr-w and alt-w, for paste, cut, copy at least)

@@ -60,11 +60,11 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; Load additional lisp files
-(setq custom-lisp-dir "~/.emacs.new/custom/")
+(setq custom-lisp-dir "~/.emacs.tiny/custom/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
-(setq custom-lisp-dir "~/.emacs.new/epitech/")
+(setq custom-lisp-dir "~/.emacs.tiny/epitech/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
