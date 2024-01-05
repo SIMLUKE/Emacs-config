@@ -46,9 +46,14 @@
           treemacs-show-hidden-files t
           treemacs-silent-refresh nil
           treemacs-width 30)
-    (treemacs-resize-icons 20)
-    (treemacs-define-custom-icon (all-the-icons-faicon "cube" :height 1.1 :v-adjust 0.05) "folder")
-    (treemacs-define-custom-icon (all-the-icons-faicon "file-text-o" :height 1.1 :v-adjust -0.2) "default-file")
+    (if (not window-system)
+	(progn
+      )
+      (progn
+	(treemacs-resize-icons 20)
+	(treemacs-define-custom-icon (all-the-icons-faicon "cube" :height 1.1 :v-adjust 0.05) "folder")
+	(treemacs-define-custom-icon (all-the-icons-faicon "file-text-o" :height 1.1 :v-adjust -0.2) "default-file")
+	))
     :init
     (treemacs)
     )
@@ -131,31 +136,35 @@
   :init
   (global-flycheck-mode)
   )
-(use-package flycheck-posframe
-  :ensure t
-  :after flycheck
-  :config
-  (setq flycheck-posframe-warning-prefix " ")
-  (setq flycheck-posframe-error-prefix " ")
-  (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
-  )
-(set-face-attribute 'flycheck-posframe-error-face
-                    nil
-                    :inherit nil
-                    :foreground "red")
+(if (not window-system)
+    (progn
+      )
+  (use-package flycheck-posframe
+    :ensure t
+    :after flycheck
+    :config
+    (setq flycheck-posframe-warning-prefix " ")
+    (setq flycheck-posframe-error-prefix " ")
+    (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
+    )
+  (set-face-attribute 'flycheck-posframe-error-face
+                      nil
+                      :inherit nil
+                      :foreground "red")
 
-(set-face-attribute 'flycheck-posframe-warning-face
+  (set-face-attribute 'flycheck-posframe-warning-face
                     nil
                     :foreground "orange")
 
-(set-face-attribute 'flycheck-posframe-info-face
-                    nil
-                    :foreground "blue")
+  (set-face-attribute 'flycheck-posframe-info-face
+                      nil
+                      :foreground "blue")
 
-(set-face-attribute 'flycheck-posframe-border-face
-                    nil
-                    :foreground "#dc752f")
-
+  (set-face-attribute 'flycheck-posframe-border-face
+                      nil
+                      :foreground "#dc752f")
+  (progn
+    ))
 ;; Company mode for auto-completion
 (use-package company
   :ensure t
