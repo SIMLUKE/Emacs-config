@@ -26,7 +26,8 @@ This config was made in order to run on daemons, this allows emacs to be instant
 >alias VSemacs "emacsclient -nw"
 >```
 >Use ne _file_ to open a file, and VSemacs to start the vscode like emacs
->(for user with emacs gui only, DM me for config)
+>
+>(for users with emacs gui only, DM me for config)
 
 ## Keybings
 If you are unfamiliar with emacs's base keybindings i would suggest reading this : [emacs cheatsheet](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). (please use ctr-y, ctr-w and alt-w, for paste, cut, copy at least)
