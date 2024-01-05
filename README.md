@@ -16,12 +16,10 @@ This config was made in order to run on daemons, this allows emacs to be instant
 
 >[!TIP]
 >I would HIGHLY suggest you add this code to your ".zshrc" or ".bashrc" config :
+>
 >```
->ne() {
->    emacsclient -c -s tiny -a "" "$1" &
->    disown
->}
->alias VSemacs emacsclient -c 
+>alias ne="emacsclient -nw -s tiny"
+>alias VSemacs="emacsclient -c"
 >```
 >
 >Use ne _file_ to open a file, and VSemacs to start the vscode like emacs
