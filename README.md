@@ -15,7 +15,7 @@ This config was made in order to run on daemons, this allows emacs to be instant
 3. Tiny instance, this config runs on the "emacs tiny" daemon, starting an instance like the previous would be stupid, you could use it like this `emacsclient -c -s tiny "file"`
 
 >[!TIP]
->I would HIGHLY suggest you add this code to your ".zshrc" or ".bashrc" config :
+>I would **HIGHLY** suggest you add this code to your ".zshrc" or ".bashrc" config :
 >```
 >ne() {
 >    emacsclient -c -s tiny -a "" "$1" &
