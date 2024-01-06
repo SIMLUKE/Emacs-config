@@ -33,8 +33,7 @@
   :defer t
   :config
   (progn
-    (setq treemacs-display-in-side-window t
-          treemacs-indentation 2
+    (setq treemacs-indentation 2
           treemacs-indentation-string " "
           treemacs-missing-project-action 'ask
           treemacs-no-png-images nil
@@ -126,42 +125,43 @@
   (setq lsp-ui-sideline-show-hover t)
   (setq lsp-ui-doc-show-with-cursor t)
   )
-;; Set up Flycheck
+
 (use-package flycheck
   :ensure t
-  :init
-  (global-flycheck-mode)
+  :init (global-flycheck-mode)
   )
-(if (not window-system)
-    (progn
-      (use-package flycheck-posframe
-        :ensure t
-        :after flycheck
-        )
+
+(defun my-fly-mode ()
+  (interactive)
+  (if (window-system)
+        (progn
+          (flycheck-posframe-mode))
       )
-  (progn
-    (use-package flycheck-posframe
-    :ensure t
-    :after flycheck
-    :config
-    (setq flycheck-posframe-warning-prefix " ")
-    (setq flycheck-posframe-error-prefix " ")
-    (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
     )
-    (set-face-attribute 'flycheck-posframe-error-face
-			nil
-			:inherit nil
-			:foreground "red")
-    (set-face-attribute 'flycheck-posframe-warning-face
-			nil
-			:foreground "orange")
-    (set-face-attribute 'flycheck-posframe-info-face
-			nil
+
+(use-package flycheck-posframe
+  :ensure t
+  :after flycheck
+  :config
+  (add-hook 'find-file-hook #'my-fly-mode)
+  (setq flycheck-posframe-warning-prefix " ")
+  (setq flycheck-posframe-error-prefix " ")
+  (set-face-attribute 'flycheck-posframe-error-face
+                      nil
+                      :inherit nil
+                      :foreground "red")
+  (set-face-attribute 'flycheck-posframe-warning-face
+                      nil
+                      :foreground "orange")
+  (set-face-attribute 'flycheck-posframe-info-face
+                      nil
                       :foreground "blue")
-    (set-face-attribute 'flycheck-posframe-border-face
-			nil
-			:foreground "#dc752f")
-    ))
+  (set-face-attribute 'flycheck-posframe-border-face
+                      nil
+                      :foreground "#555555")
+  (setq flycheck-posframe-border-width 2)
+)
+
 ;; Company mode for auto-completion
 (use-package company
   :ensure t

@@ -38,5 +38,5 @@ select commitPrefix in "${options[@]}"; do
 done
 
 echo "Installation done, starting emacs with restart_emacs.sh script :"
-restart_emacs.sh
+./restart_emacs.sh
 echo "I hope you read the README.md or else this is going to be a bad install for you ..."
