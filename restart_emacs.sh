@@ -10,5 +10,5 @@ else
     echo "emacs is running. restarting emacs."
     killall emacs
     emacs --with-profile tiny --daemon=tiny
-    emacs --daemon &
+    emacs --daemon
 fi
