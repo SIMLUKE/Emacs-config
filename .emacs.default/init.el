@@ -30,36 +30,14 @@
 ;; Fat treemacs config
 (use-package treemacs
   :ensure t
-  :defer t
-  :config
-  (progn
-    (setq treemacs-indentation 2
-          treemacs-indentation-string " "
-          treemacs-missing-project-action 'ask
-          treemacs-no-png-images nil
-          treemacs-no-delete-other-windows t
-          treemacs-project-follow-cleanup t
-          treemacs-persist-file (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-position 'left
-          treemacs-show-cursor t
-          treemacs-show-hidden-files t
-          treemacs-silent-refresh nil
-          treemacs-width 30)
-    (if (not window-system)
-	(progn
-      )
-      (progn
-	(treemacs-resize-icons 20)
-	(treemacs-define-custom-icon (all-the-icons-faicon "cube" :height 1.1 :v-adjust 0.05) "folder")
-	(treemacs-define-custom-icon (all-the-icons-faicon "file-text-o" :height 1.1 :v-adjust -0.2) "default-file")
-	))
-    :init
-    (treemacs)
-    )
+  :init
+  (treemacs)
+  )
 
-  (use-package treemacs-all-the-icons
-    :ensure t
-    :after treemacs))
+(use-package treemacs-all-the-icons
+  :ensure t
+  :after treemacs
+  )
 ;; Configure additional key bindings for Treemacs
 (global-set-key (kbd "C-x t f") 'treemacs-find-file)
 (global-set-key (kbd "C-x t B") 'treemacs-bookmark)
@@ -241,6 +219,7 @@
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
 ;;; Quick fixes
+;(setq debug-on-error t)
 ;; No warnings
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
