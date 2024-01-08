@@ -32,9 +32,11 @@ This config was made in order to run on daemons, this allows emacs to be instant
 >
 >(for users with emacs gui, DM me for config)
 
+
 >[!IMPORTANT]
->The LSP mode (the thing that shows you warnings) runs off clang (that's why you install it) to modifie the flags it compiles with (add more warnings or a -iquote./include) copy the the (compile_flags.txt) in the root of your repository
->
+>The LSP mode (the thing that shows you warnings) runs off clang (that's why you install it) to modifie the flags it compiles with (add more warnings or a -I./include) copy the the (compile_flags.txt) in the root of your repository
+
+
 ## Keybings
 If you are unfamiliar with emacs's base keybindings i would suggest reading this : [emacs cheatsheet](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). (please use ctr-y, ctr-w and alt-w, for paste, cut, copy at least)
 As for the config, it contains custom keybinds inside the [keybinds file](.emacs.default/custom/keyboard-shortcuts.el)
