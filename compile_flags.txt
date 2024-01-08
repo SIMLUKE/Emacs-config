@@ -1,0 +1,3 @@
+-I./include
+-Weverything
+-Wno-unsafe-buffer-usage
