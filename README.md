@@ -25,8 +25,8 @@ This config was made in order to run on daemons, this allows emacs to be instant
 >```
 >Or in a .zshrc config
 >```
->alias ne "emacsclient -nw -s tiny"
->alias VSemacs "emacsclient -nw"
+>alias nee='emacsclient -nw -s tiny'
+>alias VSemacs='emacsclient -nw'
 >```
 >Use ne _file_ to open a file, and VSemacs to start the vscode like emacs
 >
