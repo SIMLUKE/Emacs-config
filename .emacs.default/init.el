@@ -220,6 +220,7 @@
 
 ;;; Quick fixes
 ;(setq debug-on-error t)
+(setq-default indent-tabs-mode nil)
 ;; No warnings
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
@@ -228,5 +229,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("993aac313027a1d6e70d45b98e121492c1b00a0daa5a8629788ed7d523fe62c1" default))
  '(package-selected-packages
    '(lsp-ui which-key vterm vscode-dark-plus-theme treemacs-all-the-icons projectile magit lsp-mode flycheck dashboard)))
