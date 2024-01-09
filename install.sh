@@ -37,6 +37,29 @@ select commitPrefix in "${options[@]}"; do
     esac
 done
 
+echo "Adding the aliases to your dot config."
+PS3="Please select your terminal interpretor : "
+options=("BASH" "ZSH")
+select commitPrefix in "${options[@]}"; do
+    case $commitPrefix in
+        "ZSH")
+            echo "alias ne=\'emacsclient -nw -s tiny\'" >> ~/.zshrc
+            echo "alias VSemacs=\'emacsclient -nw\'" >> ~/.zshrc
+            source ~/.bashrc
+	    break
+            ;;
+        "BASH")
+            echo "alias ne=\"emacsclient -nw -s tiny\"" >> ~/.bashrc
+            echo "alias VSemacs=\"emacsclient -nw\"" >> ~/.bashrc
+            source ~/.bashrc
+            break
+	    ;;
+        *)
+            echo "Invalid choice. Please select a valid option."
+            ;;
+    esac
+done
+
 echo "Installation done, starting emacs with restart_emacs.sh script :"
 ./restart_emacs.sh
 echo "I hope you read the README.md or else this is going to be a bad install for you ..."
