@@ -14,24 +14,8 @@ This config was made in order to run on daemons, this allows emacs to be instant
 
 ### Usage
 1. **BEFORE EVERYTHING** run the provided "restart_emacs.sh" script, this will start or restart the daemons, i would suggest adding this to your autostart on your computer (the install script will run it for you the first time as he need to load all the packages but this script will need to be run each time you reeboot your computer)
-2. VS CODE like editor, this config runs on the "emacs" daemon, in order to start an instance use the command : `emacsclient -c`
-3. Tiny instance, this config runs on the "emacs tiny" daemon, starting an instance like the previous would be stupid, you could use it like this `emacsclient -c -s tiny "file"`
-
->[!TIP]
->I would **HIGHLY** suggest you add this code to your ".bashrc" config :
->```
->alias ne="emacsclient -nw -s tiny"
->alias VSemacs="emacsclient -nw"
->```
->Or in a .zshrc config
->```
->alias nee='emacsclient -nw -s tiny'
->alias VSemacs='emacsclient -nw'
->```
->Use ne _file_ to open a file, and VSemacs to start the vscode like emacs
->
->(for users with emacs gui, DM me for config)
-
+2. VS CODE like editor, this config runs on the "emacs" daemon, in order to start an instance use the command : `VSemacs`
+3. Tiny instance, this config runs on the "emacs tiny" daemon, starting an instance like the previous would be stupid, you could use it like this `ne "file_name"`
 
 >[!IMPORTANT]
 >The LSP mode (the thing that shows you warnings) runs off clang (that's why you install it) to modifie the flags it compiles with (add more warnings or a -I./include) copy the the (compile_flags.txt) in the root of your repository
