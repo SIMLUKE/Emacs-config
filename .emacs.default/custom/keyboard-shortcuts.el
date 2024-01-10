@@ -7,3 +7,4 @@
 (global-set-key "\C-cs" 'treemacs-select-directory)
 (global-set-key "\C-xs" 'switch-to-buffer-other-frame)
 (global-set-key "\C-t" 'treemacs-select-window)
+(global-set-key "\C-xt" 'indent-tabs-mode)
