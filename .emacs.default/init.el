@@ -222,7 +222,7 @@
 ;(setq debug-on-error t)
 (defun endless/c-hook ()
   (setq-default indent-tabs-mode nil))
-(add-hook 'c++-mode-hook #'endless/c-hook)
+(add-hook 'c-mode-hook #'endless/c-hook)
 ;; No warnings
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
