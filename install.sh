@@ -11,7 +11,7 @@ else
 fi
 
 echo "cloning chemacs for multiple emacs configs."
-git clone git@github.com:plexus/chemacs2.git ~/.emacs.d
+git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 
 echo "Setting up folders"
 cp .emacs-profiles.el ~/
