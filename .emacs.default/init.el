@@ -32,6 +32,7 @@
   :ensure t
   :init
   (treemacs)
+  (treemacs-hide-gitignored-files-mode)
   )
 
 (use-package treemacs-all-the-icons
@@ -41,6 +42,7 @@
 ;; Configure additional key bindings for Treemacs
 (global-set-key (kbd "C-x t f") 'treemacs-find-file)
 (global-set-key (kbd "C-x t B") 'treemacs-bookmark)
+(global-set-key (kbd "C-x t C-t") 'treemacs-find-tag)
 (global-set-key (kbd "C-x t C-t") 'treemacs-find-tag)
 
 ;; Customize the faces for Treemacs
@@ -104,6 +106,12 @@
   (setq lsp-ui-doc-show-with-cursor t)
   )
 
+(use-package lsp-treemacs
+  :after lsp)
+
+(use-package lsp-ivy
+  :after lsp)
+
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode)
@@ -147,8 +155,6 @@
   :config
   (setq company-minimum-prefix-length 1
         company-idle-delay 0.0)
-
-  ;; Enable company-box for a better UI
   (use-package company-box
     :ensure t
     :hook (company-mode . company-box-mode)))
