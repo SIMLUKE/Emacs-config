@@ -4,6 +4,8 @@
 
 ## Install
 Just execute my script bro (will take some time)
+(if asked project root, awnser ".")
+(if asked to compile vterm say yes)
 
 ## Update
 Just execute my script bro (will take some time)

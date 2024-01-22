@@ -11,3 +11,5 @@ cp .emacs.tiny/custom/* ~/.emacs.tiny/custom/
 
 cp .emacs.default/epitech/* ~/.emacs.default/epitech/
 cp .emacs.tiny/epitech/* ~/.emacs.tiny/epitech/
+
+./restart_emacs.sh
