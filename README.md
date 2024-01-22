@@ -3,9 +3,9 @@
 >Please read this page carefully, you need to change your way of using emacs in oder to maximize the potential of this config.
 
 ## Install
-Just execute my script bro (will take some time)
-(if asked project root, awnser ".")
-(if asked to compile vterm say yes)
+Just execute my script bro (will take some time)\n
+(if asked project root, awnser ".")\n
+(if asked to compile vterm say yes)\n
 
 ## Update
 Just execute my script bro (will take some time)
