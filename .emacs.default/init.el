@@ -39,21 +39,6 @@
   :ensure t
   :after treemacs
   )
-;; Configure additional key bindings for Treemacs
-(global-set-key (kbd "C-x t f") 'treemacs-find-file)
-(global-set-key (kbd "C-x t B") 'treemacs-bookmark)
-(global-set-key (kbd "C-x t C-t") 'treemacs-find-tag)
-(global-set-key (kbd "C-x t C-t") 'treemacs-find-tag)
-
-;; Customize the faces for Treemacs
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(treemacs-directory-face ((t (:foreground "LightSkyBlue1"))))
- '(treemacs-file-face ((t (:foreground "white"))))
- '(treemacs-root-face ((t (:foreground "gold" :weight bold)))))
 
 ;; Set up vterm
 (use-package vterm
@@ -72,6 +57,14 @@
     (start-process "alacritty-process" nil "alacritty")))
 (global-set-key (kbd "C-c a") 'my/projectile-run-alacritty-in-root)
 
+;;; Debugger
+(use-package dap-mode
+  :commands dap-debug
+  :config
+  (require 'dap-node)
+  (dap-node-setup)
+  )
+
 ;;; Set up lsp-mode
 ;; Set the path to clangd (update with your actual path)
 (setq lsp-clients-clangd-executable "/usr/bin/clangd")
@@ -79,7 +72,7 @@
 ;; LSP configuration
 (use-package lsp-mode
   :ensure t
-  :hook ((c-mode c++-mode python-mode) . lsp)
+  :hook ((c-mode c++-mode) . lsp)
   :commands lsp
   :config
   (setq lsp-prefer-flymake nil)
@@ -107,9 +100,6 @@
   )
 
 (use-package lsp-treemacs
-  :after lsp)
-
-(use-package lsp-ivy
   :after lsp)
 
 (use-package flycheck
@@ -158,21 +148,7 @@
   (use-package company-box
     :ensure t
     :hook (company-mode . company-box-mode)))
-
-;; Emacs Lisp LSP support
-(use-package lsp-mode
-  :ensure t
-  :commands lsp
-  :hook (emacs-lisp-mode . lsp))
-
-;; Python LSP support
-(use-package lsp-python-ms
-  :ensure t
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-python-ms)
-                         (lsp))))
 (global-company-mode)
-
 
 ;; Set up which-key
 (use-package which-key
@@ -215,7 +191,7 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
-;;; Load additional lisp files
+;;; Load other files
 (setq custom-lisp-dir "~/.emacs.default/custom/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
@@ -225,13 +201,12 @@
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
 ;;; Quick fixes
-;(setq debug-on-error t)
-(defun endless/c-hook ()
-  (setq-default indent-tabs-mode nil))
-(add-hook 'c-mode-hook #'endless/c-hook)
+;;(setq debug-on-error t)
+
 ;; No warnings
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -241,3 +216,12 @@
    '("993aac313027a1d6e70d45b98e121492c1b00a0daa5a8629788ed7d523fe62c1" default))
  '(package-selected-packages
    '(lsp-ui which-key vterm vscode-dark-plus-theme treemacs-all-the-icons projectile magit lsp-mode flycheck dashboard)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(treemacs-directory-face ((t (:foreground "LightSkyBlue1"))))
+ '(treemacs-file-face ((t (:foreground "white"))))
+ '(treemacs-root-face ((t (:foreground "gold" :weight bold)))))

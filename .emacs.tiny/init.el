@@ -26,7 +26,7 @@
 (use-package all-the-icons
   :ensure t)
 
-;; Company mode for auto-completion
+;; Company mode
 (use-package company
   :ensure t
   :hook (prog-mode . company-mode)
@@ -56,10 +56,7 @@
   (setq ido-use-filename-at-point 'guess)
   (setq ido-create-new-buffer 'always))
 
-;; Set up whitespace deletion
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;;; Load additional lisp files
+;;; Load other files
 (setq custom-lisp-dir "~/.emacs.tiny/custom/")
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
@@ -69,13 +66,11 @@
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
 ;;; Quick fixes
-(setq-default indent-tabs-mode nil)
-(defun endless/c-hook ()
-  (setq indent-tabs-mode nil))
-(add-hook 'c++-mode-hook #'endless/c-hook)
+
 ;; No warnings
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
