@@ -25,9 +25,11 @@ select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
         "Fedora")
             sudo dnf install clang-tools-extra
+            sudo dnf install pyright
 	    break
             ;;
         "Arch")
+            sudo pacman -S pyright
             sudo pacman -S clang
 	    break
 	    ;;

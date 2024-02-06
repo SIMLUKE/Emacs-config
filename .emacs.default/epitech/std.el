@@ -10,9 +10,7 @@
 (normal-erase-is-backspace-mode 0)
 
 ; Define keyboard shortcuts
-(global-set-key (kbd "C-h") 'backward-delete-char)
 (global-set-key (kbd "C-c C-c") 'compile)
-(global-set-key (kbd "C-g") 'goto-line)
 
 ; Adjust indentation settings
 (setq c-basic-offset 4

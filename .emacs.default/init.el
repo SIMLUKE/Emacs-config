@@ -1,3 +1,10 @@
+;;; init_emacs --- main_config_of_lukemacs
+
+;;; Commentary:
+;; READ THE README
+
+;;; Code:
+
 ;; Define package archives
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -13,26 +20,16 @@
 (eval-when-compile
   (require 'use-package))
 
-;; Theme
-(use-package vscode-dark-plus-theme
-  :ensure t
-  :config
-  (load-theme 'vscode-dark-plus t))
-(setq vscode-dark-plus-box-org-todo nil)
-(setq vscode-dark-plus-scale-org-faces nil)
-(setq vscode-dark-plus-invert-hl-todo nil)
-(setq vscode-dark-plus-render-line-highlight 'line)
-
 ;; Icons
 (use-package all-the-icons
   :ensure t)
 
-;; Fat treemacs config
+;; Set up treemacs
 (use-package treemacs
   :ensure t
   :init
   (treemacs)
-  (treemacs-hide-gitignored-files-mode)
+  (treemacs-hide-gitignored-files-mode 1)
   )
 
 (use-package treemacs-all-the-icons
@@ -65,14 +62,9 @@
   (dap-node-setup)
   )
 
-;;; Set up lsp-mode
-;; Set the path to clangd (update with your actual path)
-(setq lsp-clients-clangd-executable "/usr/bin/clangd")
-
-;; LSP configuration
+;;; LSP configuration
 (use-package lsp-mode
   :ensure t
-  :hook ((c-mode c++-mode) . lsp)
   :commands lsp
   :config
   (setq lsp-prefer-flymake nil)
@@ -108,6 +100,7 @@
   )
 
 (defun my-fly-mode ()
+  "Allow the use of lsp in tty mode."
   (interactive)
   (if (window-system)
         (progn
@@ -128,10 +121,10 @@
                       :foreground "red")
   (set-face-attribute 'flycheck-posframe-warning-face
                       nil
-                      :foreground "orange")
+                      :foreground "purple")
   (set-face-attribute 'flycheck-posframe-info-face
                       nil
-                      :foreground "blue")
+                      :foreground "cyan")
   (set-face-attribute 'flycheck-posframe-border-face
                       nil
                       :foreground "#555555")
@@ -177,9 +170,6 @@
   (setq ido-use-filename-at-point 'guess)
   (setq ido-create-new-buffer 'always))
 
-;; Set up whitespace deletion
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; Set up Projectile
 (use-package projectile
   :ensure t
@@ -200,6 +190,10 @@
 (add-to-list 'load-path custom-lisp-dir)
 (mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
 
+(setq custom-lisp-dir "~/.emacs.default/languages/")
+(add-to-list 'load-path custom-lisp-dir)
+(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+
 ;;; Quick fixes
 ;;(setq debug-on-error t)
 
@@ -215,7 +209,7 @@
  '(custom-safe-themes
    '("993aac313027a1d6e70d45b98e121492c1b00a0daa5a8629788ed7d523fe62c1" default))
  '(package-selected-packages
-   '(lsp-ui which-key vterm vscode-dark-plus-theme treemacs-all-the-icons projectile magit lsp-mode flycheck dashboard)))
+   '(go-gopath go-complete go-mode lsp-ui which-key vterm vscode-dark-plus-theme treemacs-all-the-icons projectile magit lsp-mode flycheck dashboard)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -225,3 +219,5 @@
  '(treemacs-directory-face ((t (:foreground "LightSkyBlue1"))))
  '(treemacs-file-face ((t (:foreground "white"))))
  '(treemacs-root-face ((t (:foreground "gold" :weight bold)))))
+
+;;; init.el ends here

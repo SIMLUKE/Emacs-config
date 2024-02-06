@@ -1,4 +1,10 @@
-;; nicer scroller experience
+;;; Mouse_conf --- everything generally related to programing mode
+
+;;; Commentary:
+
+;;; Code:
+
+;; Nicer scroller experience
 (setq scroll-margin 5)
 
 (unless window-system
@@ -13,3 +19,5 @@
 
 ;; customizing the cursor
 (setq-default cursor-type 'bar)
+
+;;; mouse.el ends here

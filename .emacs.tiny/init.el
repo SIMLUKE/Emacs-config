@@ -12,16 +12,6 @@
 (eval-when-compile
   (require 'use-package))
 
-;; Theme
-(use-package vscode-dark-plus-theme
-  :ensure t
-  :config
-  (load-theme 'vscode-dark-plus t))
-(setq vscode-dark-plus-box-org-todo nil)
-(setq vscode-dark-plus-scale-org-faces nil)
-(setq vscode-dark-plus-invert-hl-todo nil)
-(setq vscode-dark-plus-render-line-highlight 'line)
-
 ;; Icons
 (use-package all-the-icons
   :ensure t)
@@ -34,7 +24,7 @@
   (setq company-minimum-prefix-length 1
         company-idle-delay 0.0)
 
-  ;; Enable company-box for a better UI
+;; Enable company-box for a better UI
   (use-package company-box
     :ensure t
     :hook (company-mode . company-box-mode)))
