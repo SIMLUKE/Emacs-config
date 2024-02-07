@@ -31,14 +31,18 @@ If you are unfamiliar with emacs's base keybindings i would suggest reading this
 As for the config, it contains custom keybinds inside the [keybinds file](.emacs.default/custom/keyboard-shortcuts.el)
 The most usefull are :
 1. `ctr-t` : opens file browser
-2. `ctr-c s` : change the file browser directory
-3. `ctr-c r` : replace all string by another
-4. `ctr-c v` : allows copy in the vterm window
-5. `ctr-n` : opens a new tab (if you want the vs code tab experience)
-6. `ctr-q` : close said tab
-7. `ctr-x t f` : looks for a file in the file browser
-8. `ctr-x t b` : bookmarks a file
-9. `ctr-x g` : git status of project
+2. `ctr-c ctr-t` : change the file browser directory
+3. `ctr-c ctr-s` : change the file browser workspace
+4. `ctr-c ctr-e` : edit the file browser workspaces
+5. `ctr-c ctr-z` : create a file browser workspace
+6. `ctr-c ctr-d` : enter file manager mode
+7. `ctr-c r` : replace all string by another
+8. `ctr-c v` : allows copy in the vterm window
+9. `ctr-n` : opens a new tab (if you want the vs code tab experience)
+10. `ctr-q` : close said tab
+11. `ctr-x t f` : looks for a file in the file browser
+12. `ctr-x t b` : bookmarks a file
+13. `ctr-x g` : git status of project
 
 ### Issues
 
