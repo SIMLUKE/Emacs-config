@@ -39,3 +39,12 @@ The most usefull are :
 7. `ctr-x t f` : looks for a file in the file browser
 8. `ctr-x t b` : bookmarks a file
 9. `ctr-x g` : git status of project
+
+### Issues
+
+If you are having icons problems, run theses commands (inside emacs)
+
+```
+all-the-icons-install-fonts
+nerd-icons-install-fonts
+```
