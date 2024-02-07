@@ -41,7 +41,7 @@ done
 
 echo "Adding the aliases to your dot config."
 PS3="Please select your terminal interpretor : "
-options=("BASH" "ZSH")
+options=("BASH" "ZSH" "SKIP")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
         "ZSH")
@@ -54,6 +54,10 @@ select commitPrefix in "${options[@]}"; do
             echo "alias ne=\"emacsclient -nw -s tiny\"" >> ~/.bashrc
             echo "alias VSemacs=\"emacsclient -nw\"" >> ~/.bashrc
             source ~/.bashrc
+            break
+	    ;;
+        "SKIP")
+            echo "Skiped"
             break
 	    ;;
         *)
