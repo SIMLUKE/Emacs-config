@@ -46,5 +46,7 @@ If you are having icons problems, run theses commands (inside emacs)
 
 ```
 all-the-icons-install-fonts
+```
+```
 nerd-icons-install-fonts
 ```
