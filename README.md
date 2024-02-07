@@ -18,7 +18,7 @@ Just execute my script bro (will take some time)
 This config was made in order to run on daemons, this allows emacs to be instantly opened once the daemon is started, doing otherwise would be stupid.
 
 ### Usage
-1. **BEFORE EVERYTHING** run the provided "restart_emacs.sh" script, this will start or restart the daemons, i would suggest adding this to your autostart on your computer (the install script will run it for you the first time as he need to load all the packages but this script will need to be run each time you reeboot your computer)
+1. **After each computer restart->**run the provided "restart_emacs.sh" script, this will start or restart the daemons, i would suggest adding this to your autostart on your computer (the install script will run it for you the first time as he need to load all the packages but this script will need to be run each time you reeboot your computer)
 2. VS CODE like editor, this config runs on the "emacs" daemon, in order to start an instance use the command : `VSemacs`
 3. Tiny instance, this config runs on the "emacs tiny" daemon, starting an instance like the previous would be stupid, you could use it like this `ne "file_name"`
 
