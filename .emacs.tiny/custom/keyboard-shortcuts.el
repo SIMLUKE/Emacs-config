@@ -13,12 +13,12 @@
 (global-set-key "\C-xs" 'switch-to-buffer-other-frame)
 (global-set-key "\C-xt" 'indent-tabs-mode)
 
-;; Treemacs specific keybinds
-(global-set-key "\C-t" 'treemacs-select-window)
-(global-set-key "\C-cs" 'treemacs-select-directory)
-
 ;; Make ESC quit everything
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(provide 'keyboard-shortcuts)
+;; Dired mode keybinds
+(global-set-key "\C-cd" 'dirvish)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "<backspace>") 'dired-up-directory))
+
 ;;; keyboard-shortcuts.el ends here

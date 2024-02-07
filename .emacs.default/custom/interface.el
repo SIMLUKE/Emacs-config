@@ -13,8 +13,28 @@
 (setq vscode-dark-plus-invert-hl-todo nil)
 (setq vscode-dark-plus-render-line-highlight 'line)
 
-;; Loads theme (here to replace with your own)
-(load-theme 'vscode-dark-plus t)
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-one t)
+
+  (doom-themes-visual-bell-config)
+
+  ;; Uncomment this for minimal icons
+  ;; (setq doom-themes-treemacs-theme "doom-colors")
+  ;; (doom-themes-treemacs-config)
+  (doom-themes-org-config))
+
+;; Modeline
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)
+  (display-time-mode 1)
+  )
 
 ;; sets up the columns numbers
 (setq column-number-mode t)

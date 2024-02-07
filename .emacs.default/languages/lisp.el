@@ -4,5 +4,10 @@
 
 ;;; Code:
 
+(use-package lispy
+  :ensure t
+  :hook
+  (emacs-lisp-mode . lispy-mode)
+  )
 
 ;;; lisp.el ends here
