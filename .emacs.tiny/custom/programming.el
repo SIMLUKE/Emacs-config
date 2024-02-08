@@ -1,3 +1,9 @@
+;;; Programming_conf --- everything generally related to programing mode
+
+;;; Commentary:
+
+;;; Code:
+
 ;; nukes trailling spaces
 (add-hook 'before-save-hook 'my-prog-nuke-trailing-whitespace)
 (defun my-prog-nuke-trailing-whitespace ()
@@ -6,3 +12,5 @@
 
 ;; auto completes pairs
 (electric-pair-mode 1)
+
+;;; programming.el ends here

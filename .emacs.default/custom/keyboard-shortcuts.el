@@ -23,9 +23,12 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "<backspace>") 'dired-up-directory))
 
+;; Lsp mode keybinds
+(add-hook 'lsp-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-<return>") #'lsp-find-definition)))
 
 ;; Make ESC quit everything
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(provide 'keyboard-shortcuts)
 ;;; keyboard-shortcuts.el ends here
