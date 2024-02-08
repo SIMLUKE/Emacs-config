@@ -46,6 +46,10 @@ The most usefull are :
 
 ### Issues
 
+## LSP MODE
+If you are pompted with enable to find language for buffer, do `tab` `return` it will download the rigth language server
+
+## Icons
 If you are having icons problems, run theses commands (inside emacs)
 
 ```

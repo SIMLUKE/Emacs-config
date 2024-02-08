@@ -16,7 +16,7 @@
 (global-set-key "\C-c\C-t" 'treemacs-select-directory)
 (global-set-key "\C-c\C-s" 'treemacs-switch-workspace)
 (global-set-key "\C-c\C-z" 'treemacs-create-workspace)
-(global-set-key "\C-c\C-e" 'treemacs-edit-workspacesx)
+(global-set-key "\C-c\C-e" 'treemacs-edit-workspaces)
 
 ;; Dired mode keybinds
 (global-set-key "\C-c\C-d" 'dirvish)

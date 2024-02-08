@@ -213,6 +213,7 @@
 
 ;;; Quick fixes
 ;;(setq debug-on-error t)
+(add-to-list 'warning-suppress-types '(lsp-mode))
 
 ;;; yes or no change
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -232,10 +233,10 @@
  '(package-selected-packages
    '(go-mode lsp-ui which-key vterm vscode-dark-plus-theme treemacs-all-the-icons projectile magit lsp-mode flycheck dashboard)))
 
-;;; init.el ends here
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;;; init.el ends here
