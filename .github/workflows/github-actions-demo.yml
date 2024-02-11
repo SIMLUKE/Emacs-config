@@ -6,4 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: find -name "#*#" -delete -o -name '*~' -delete -o -name "coding-style-reports.log" -delete -o -name "vgcore.*" -delete
+      - run: coding-style.sh
 
