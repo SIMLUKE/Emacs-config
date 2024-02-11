@@ -96,7 +96,9 @@
   )
 
 (use-package lsp-treemacs
-  :after lsp)
+  :ensure t
+  :after lsp
+  )
 
 (use-package flycheck
   :ensure t
@@ -196,6 +198,15 @@
   :ensure t
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+  )
+
+;;; Multiple major modes
+(use-package multi-mode
+  :ensure t
+  )
+
+(use-package tree-sitter
+  :ensure t
   )
 
 ;;; Load other files
