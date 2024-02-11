@@ -9,6 +9,9 @@
 
 (add-hook 'asm-mode-hook 'lsp)
 
+(add-hook 'c++-mode-hook 'lsp)
+
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp-language-id-configuration '(asm-mode . "asm")))
+
 ;;; c.el ends here

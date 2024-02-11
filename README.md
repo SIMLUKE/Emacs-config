@@ -47,7 +47,12 @@ The most usefull are :
 ### Issues
 
 ## LSP MODE
-If you are pompted with enable to find language for buffer, do `tab` `return` it will download the rigth language server
+If you are pompted with enable to find language for buffer, do `tab` `return` it will download the right language server
+
+If you are having typescript related lsp mode errors, run this command
+```
+sudo npm i -g typescript-language-server typescript
+```
 
 ## Icons
 If you are having icons problems, run theses commands (inside emacs)
