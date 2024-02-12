@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: ls -R
       - run: find -name "#*#" -delete -o -name '*~' -delete -o -name "coding-style-reports.log" -delete -o -name "vgcore.*" -delete
-      - run: tests/coding-style/coding-style.sh
+      - run: ./tests/coding-style/coding-style.sh
 
