@@ -8,4 +8,3 @@ jobs:
       - run: pwd
       - run: find -name "#*#" -delete -o -name '*~' -delete -o -name "coding-style-reports.log" -delete -o -name "vgcore.*" -delete
       - run: bash ./tests/coding-style/coding-style.sh
-

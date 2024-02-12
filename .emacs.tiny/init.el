@@ -53,13 +53,9 @@
   (setq ido-create-new-buffer 'always))
 
 ;;; Load other files
-(setq custom-lisp-dir "~/.emacs.tiny/custom/")
-(add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+(mapc 'load (file-expand-wildcards "~/.emacs.default/tiny/*.el"))
 
-(setq custom-lisp-dir "~/.emacs.tiny/epitech/")
-(add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+(mapc 'load (file-expand-wildcards "~/.emacs.tiny/epitech/*.el"))
 
 ;;; Quick fixes
 

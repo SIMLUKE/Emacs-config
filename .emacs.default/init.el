@@ -210,17 +210,11 @@
   )
 
 ;;; Load other files
-(setq custom-lisp-dir "~/.emacs.default/custom/")
-(add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+(mapc 'load (file-expand-wildcards "~/.emacs.default/custom/*.el"))
 
-(setq custom-lisp-dir "~/.emacs.default/epitech/")
-(add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+(mapc 'load (file-expand-wildcards "~/.emacs.default/epitech/*.el"))
 
-(setq custom-lisp-dir "~/.emacs.default/languages/")
-(add-to-list 'load-path custom-lisp-dir)
-(mapc 'load (file-expand-wildcards (concat custom-lisp-dir "*.el")))
+(mapc 'load (file-expand-wildcards "~/.emacs.default/languages/*.el"))
 
 ;;; Quick fixes
 ;;(setq debug-on-error t)
