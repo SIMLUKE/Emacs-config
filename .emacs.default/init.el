@@ -35,6 +35,12 @@
   (setq treemacs-width 30)
   )
 
+;; (use-package simpleclip
+;;   :ensure t
+;;   :config
+;;   (simpleclip-mode 1)
+;;   )
+
 (use-package treemacs-all-the-icons
   :ensure t
   :after treemacs

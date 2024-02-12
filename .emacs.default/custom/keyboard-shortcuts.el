@@ -31,4 +31,16 @@
 ;; Make ESC quit everything
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+(defun my/open-term-from-tree ()
+  (interactive)
+  (treemacs-copy-absolute-path-at-point)
+  (let ((default-directory (current-kill 0 'DONT-MOVE)))
+    (start-process "alacritty-process" nil "alacritty"))
+  )
+
+
+
+(global-set-key (kbd "C-c y") 'my/open-term-from-tree)
+
+
 ;;; keyboard-shortcuts.el ends here
