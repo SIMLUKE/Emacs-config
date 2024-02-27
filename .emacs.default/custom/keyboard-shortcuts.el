@@ -10,6 +10,14 @@
 (global-set-key "\C-cv" 'vterm-copy-mode)
 (global-set-key "\C-ct" 'my-open-vterm)
 (global-set-key "\C-xt" 'indent-tabs-mode)
+(global-set-key (kbd "C-c C-r") 'projectile-run-project)
+(global-set-key (kbd "C-c RET") 'projectile-compile-project)
+
+;; Move between windows
+(global-set-key (kbd "C-c C-<right>") 'windmove-right)
+(global-set-key (kbd "C-c C-<left>") 'windmove-left)
+(global-set-key (kbd "C-c C-<up>") 'windmove-up)
+(global-set-key (kbd "C-c C-<down>") 'windmove-down)
 
 ;; Treemacs specific keybinds
 (global-set-key "\C-t" 'treemacs-select-window)
@@ -31,6 +39,7 @@
 ;; Make ESC quit everything
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; Terminal openers
 (defun my/open-term-from-tree ()
   (interactive)
   (treemacs-copy-absolute-path-at-point)
@@ -39,5 +48,17 @@
   )
 (global-set-key (kbd "C-c y") 'my/open-term-from-tree)
 
+(defun my/projectile-run-alacritty-in-root ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (start-process "alacritty-process" nil "alacritty")))
+(global-set-key (kbd "C-c a") 'my/projectile-run-alacritty-in-root)
+
+(defun my-open-vterm ()
+  (interactive)
+  (split-window-right)
+  (windmove-right)
+  (vterm (generate-new-buffer-name "vterm")))
+(global-set-key (kbd "C-c t") 'my-open-vterm)
 
 ;;; keyboard-shortcuts.el ends here
