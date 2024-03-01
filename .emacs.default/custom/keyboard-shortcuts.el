@@ -7,17 +7,20 @@
 (global-set-key "\C-n" 'tab-bar-new-tab)
 (global-set-key "\C-q" 'tab-bar-close-tab)
 (global-set-key "\C-cr" 'replace-string)
+
 (global-set-key "\C-cv" 'vterm-copy-mode)
+(global-set-key "\C-xt" 'vterm-copy-mode-done)
+
 (global-set-key "\C-ct" 'my-open-vterm)
-(global-set-key "\C-xt" 'indent-tabs-mode)
+(global-set-key (kbd "C-)") 'undo)
 (global-set-key (kbd "C-c C-r") 'projectile-run-project)
 (global-set-key (kbd "C-c RET") 'projectile-compile-project)
 
 ;; Move between windows
-(global-set-key (kbd "C-c C-<right>") 'windmove-right)
-(global-set-key (kbd "C-c C-<left>") 'windmove-left)
-(global-set-key (kbd "C-c C-<up>") 'windmove-up)
-(global-set-key (kbd "C-c C-<down>") 'windmove-down)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
 
 ;; Treemacs specific keybinds
 (global-set-key "\C-t" 'treemacs-select-window)
@@ -27,7 +30,7 @@
 (global-set-key "\C-c\C-e" 'treemacs-edit-workspaces)
 
 ;; Dired mode keybinds
-(global-set-key "\C-c\C-d" 'dirvish)
+(global-set-key "\C-cd" 'dirvish)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "<backspace>") 'dired-up-directory))
 
