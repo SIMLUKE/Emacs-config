@@ -48,6 +48,10 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
+(use-package windresize
+  :ensure t
+  )
+
 ;; funny rainbow
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))

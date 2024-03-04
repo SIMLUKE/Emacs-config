@@ -11,7 +11,6 @@
 (global-set-key "\C-cv" 'vterm-copy-mode)
 (global-set-key "\C-xt" 'vterm-copy-mode-done)
 
-(global-set-key "\C-ct" 'my-open-vterm)
 (global-set-key (kbd "C-)") 'undo)
 (global-set-key (kbd "C-c C-r") 'projectile-run-project)
 (global-set-key (kbd "C-c RET") 'projectile-compile-project)
@@ -21,6 +20,9 @@
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 (global-set-key (kbd "C-c <up>") 'windmove-up)
 (global-set-key (kbd "C-c <down>") 'windmove-down)
+
+;; resize
+(global-set-key (kbd "C-c m") 'windresize)
 
 ;; Treemacs specific keybinds
 (global-set-key "\C-t" 'treemacs-select-window)
@@ -57,11 +59,18 @@
     (start-process "alacritty-process" nil "alacritty")))
 (global-set-key (kbd "C-c a") 'my/projectile-run-alacritty-in-root)
 
-(defun my-open-vterm ()
+(defun my-open-vterm-hor ()
   (interactive)
   (split-window-right)
   (windmove-right)
   (vterm (generate-new-buffer-name "vterm")))
-(global-set-key (kbd "C-c t") 'my-open-vterm)
+(global-set-key (kbd "C-c 2") 'my-open-vterm-hor)
+
+(defun my-open-vterm-ver ()
+  (interactive)
+  (split-window-below)
+  (windmove-down)
+  (vterm (generate-new-buffer-name "vterm")))
+(global-set-key (kbd "C-c 3") 'my-open-vterm-ver)
 
 ;;; keyboard-shortcuts.el ends here
