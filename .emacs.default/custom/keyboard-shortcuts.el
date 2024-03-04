@@ -64,13 +64,13 @@
   (split-window-right)
   (windmove-right)
   (vterm (generate-new-buffer-name "vterm")))
-(global-set-key (kbd "C-c 3") 'my-open-vterm-hor)
+(global-set-key (kbd "C-c 2") 'my-open-vterm-hor)
 
 (defun my-open-vterm-ver ()
   (interactive)
   (split-window-below)
   (windmove-down)
   (vterm (generate-new-buffer-name "vterm")))
-(global-set-key (kbd "C-c 2") 'my-open-vterm-ver)
+(global-set-key (kbd "C-c 3") 'my-open-vterm-ver)
 
 ;;; keyboard-shortcuts.el ends here
