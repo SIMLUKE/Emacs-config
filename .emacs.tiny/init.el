@@ -42,6 +42,13 @@
   :config
   (which-key-mode))
 
+;; Nicer Dired mode
+(use-package dirvish
+  :ensure t
+  :init
+  (dirvish-override-dired-mode)
+  )
+
 ;; Set up ido
 (use-package ido
   :ensure t
@@ -91,7 +98,6 @@
    '("da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "571661a9d205cb32dfed5566019ad54f5bb3415d2d88f7ea1d00c7c794e70a36" "7ec8fd456c0c117c99e3a3b16aaf09ed3fb91879f6601b1ea0eeaee9c6def5d9" default))
  '(inhibit-startup-screen t)
  '(package-selected-packages '(doom-modeline which-key vscode-dark-plus-theme))
- '(tabbar-separator '(0.5)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

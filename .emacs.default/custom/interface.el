@@ -45,6 +45,7 @@
   (add-hook mode (lambda () (display-line-numbers-mode 1))))
 
 ;; cleaner emacs
+(tab-bar-mode)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
@@ -52,6 +53,8 @@
   :ensure t
   )
 
+(setq-default header-line-format mode-line-format)
+(setq-default mode-line-format nil)
 ;; funny rainbow
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))

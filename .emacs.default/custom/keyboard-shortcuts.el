@@ -44,33 +44,18 @@
 ;; Make ESC quit everything
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-;; Terminal openers
-(defun my/open-term-from-tree ()
-  (interactive)
-  (treemacs-copy-absolute-path-at-point)
-  (let ((default-directory (current-kill 0 'DONT-MOVE)))
-    (start-process "alacritty-process" nil "alacritty"))
-  )
-(global-set-key (kbd "C-c y") 'my/open-term-from-tree)
-
-(defun my/projectile-run-alacritty-in-root ()
-  (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (start-process "alacritty-process" nil "alacritty")))
-(global-set-key (kbd "C-c a") 'my/projectile-run-alacritty-in-root)
-
 (defun my-open-vterm-hor ()
   (interactive)
   (split-window-right)
   (windmove-right)
   (vterm (generate-new-buffer-name "vterm")))
-(global-set-key (kbd "C-c 2") 'my-open-vterm-hor)
+(global-set-key (kbd "C-c 3") 'my-open-vterm-hor)
 
 (defun my-open-vterm-ver ()
   (interactive)
   (split-window-below)
   (windmove-down)
   (vterm (generate-new-buffer-name "vterm")))
-(global-set-key (kbd "C-c 3") 'my-open-vterm-ver)
+(global-set-key (kbd "C-c 2") 'my-open-vterm-ver)
 
 ;;; keyboard-shortcuts.el ends here

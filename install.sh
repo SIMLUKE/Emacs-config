@@ -47,12 +47,16 @@ select commitPrefix in "${options[@]}"; do
         "ZSH")
             echo "alias ne='emacsclient -nw -s tiny'" >> ~/.zshrc
             echo "alias VSemacs='emacsclient -nw'" >> ~/.zshrc
+            echo "alias nee='emacsclient -c -s tiny'" >> ~/.zshrc
+            echo "alias VSgui='emacsclient -e'" >> ~/.zshrc
             source ~/.zshrc
 	    break
             ;;
         "BASH")
             echo "alias ne=\"emacsclient -nw -s tiny\"" >> ~/.bashrc
             echo "alias VSemacs=\"emacsclient -nw\"" >> ~/.bashrc
+            echo "alias nee=\"emacsclient -c -s tiny\"" >> ~/.bashrc
+            echo "alias VSgui=\"emacsclient -c\"" >> ~/.bashrc
             source ~/.bashrc
             break
 	    ;;
