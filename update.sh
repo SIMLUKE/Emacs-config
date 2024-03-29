@@ -5,7 +5,7 @@ git pull
 
 echo "Updtading dependencies..."
 PS3="Please select your OS : "
-options=("Arch" "Fedora")
+options=("Arch" "Fedora" "Debian")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
         "Fedora")
@@ -17,6 +17,11 @@ select commitPrefix in "${options[@]}"; do
             sudo pacman -S pyright
             sudo pacman -S clang
 	    break
+	    ;;
+        "Debian")
+            sudo apt install clang
+            echo "/!\ You won't have pyright with this pakage manager!"
+        break
 	    ;;
         *)
             echo "Invalid choice. Please select a valid option."
