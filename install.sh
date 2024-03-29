@@ -20,7 +20,7 @@ cp -r .emacs.tiny/ ~/
 
 echo "This config needs clangd to work, installing."
 PS3="Please select your OS : "
-options=("Arch" "Fedora")
+options=("Arch" "Fedora" "Debian")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
         "Fedora")
@@ -31,6 +31,11 @@ select commitPrefix in "${options[@]}"; do
         "Arch")
             sudo pacman -S pyright
             sudo pacman -S clang
+	    break
+	    ;;
+        "Debian")
+            sudo apt install clang
+            echo "/!\ You won't have pyright with this pakage manager!"
 	    break
 	    ;;
         *)
