@@ -35,7 +35,7 @@ select commitPrefix in "${options[@]}"; do
 	    ;;
         "Debian")
             sudo apt install clang
-            echo "/!\ You won't have pyright with this pakage manager!"
+            echo "install \"Pyright\" pls"
 	    break
 	    ;;
         *)
