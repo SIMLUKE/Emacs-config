@@ -58,4 +58,7 @@
   (vterm (generate-new-buffer-name "vterm")))
 (global-set-key (kbd "C-c 2") 'my-open-vterm-ver)
 
+(global-set-key (kbd "C-c f") 'mini-frame-mode)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;;; keyboard-shortcuts.el ends here

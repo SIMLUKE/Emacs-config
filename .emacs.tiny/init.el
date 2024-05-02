@@ -59,6 +59,12 @@
   (setq ido-use-filename-at-point 'guess)
   (setq ido-create-new-buffer 'always))
 
+;; Send kill ring to sys clippboard
+(use-package clipetty
+  :ensure t
+  :hook (after-init . global-clipetty-mode)
+  )
+
 ;;; Backup handling
 (setq backup-directory-alist `(("." . , "~/.emacs.tiny/backups")))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
