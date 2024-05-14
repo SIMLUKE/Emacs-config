@@ -23,6 +23,10 @@ select commitPrefix in "${options[@]}"; do
             echo "/!\ You won't have pyright with this pakage manager!"
         break
 	    ;;
+        "SKIP")
+            echo "Skiped"
+            break
+	    ;;
         *)
             echo "Invalid choice. Please select a valid option."
             ;;

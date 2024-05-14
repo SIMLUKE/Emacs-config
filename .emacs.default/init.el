@@ -137,7 +137,7 @@
   :hook (company-mode . company-box-mode))
 (global-company-mode)
 
-(use-package yas-snippet
+(use-package yasnippet
   :ensure t
   )
 (yas-global-mode)
