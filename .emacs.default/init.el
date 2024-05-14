@@ -137,6 +137,9 @@
   :hook (company-mode . company-box-mode))
 (global-company-mode)
 
+(use-package yas-snippet
+  :ensure t
+  )
 (yas-global-mode)
 
 ;; Set up which-key
