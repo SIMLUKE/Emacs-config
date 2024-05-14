@@ -119,22 +119,9 @@
              (define-key perl-mode-map (kbd "C-c C-c")
                'comment-region)))
 
-;; for all kind of lisp code
-(add-hook 'emacs-lisp-mode-hook
-           '(lambda ()
-              (define-key emacs-lisp-mode-map (kbd "C-c C-c")
-                'comment-region)))
-
-(add-hook 'lisp-mode-hook
-           '(lambda ()
-              (define-key lisp-mode-map (kbd "C-c C-c")
-                'comment-region)))
-
-
 
 ;; for La(TeX)-mode
 (add-hook 'tex-mode-hook
           '(lambda ()
              (define-key tex-mode-map (kbd "C-c C-c")
                'comment-region)))
-

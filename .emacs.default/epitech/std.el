@@ -9,9 +9,6 @@
 
 (normal-erase-is-backspace-mode 0)
 
-; Define keyboard shortcuts
-(global-set-key (kbd "C-c C-c") 'compile)
-
 ; Adjust indentation settings
 (setq c-basic-offset 4
       tab-width 4)
