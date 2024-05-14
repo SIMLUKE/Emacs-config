@@ -5,7 +5,7 @@ git pull
 
 echo "Updtading dependencies..."
 PS3="Please select your OS : "
-options=("Arch" "Fedora" "Debian")
+options=("Arch" "Fedora" "Debian" "SKIP")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
         "Fedora")
