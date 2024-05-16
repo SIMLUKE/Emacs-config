@@ -30,6 +30,7 @@
 (global-set-key "\C-c\C-s" 'treemacs-switch-workspace)
 (global-set-key "\C-c\C-z" 'treemacs-create-workspace)
 (global-set-key "\C-c\C-e" 'treemacs-edit-workspaces)
+(define-key treemacs-mode-map [drag-mouse-1] nil)
 
 ;; Dired mode keybinds
 (global-set-key "\C-cd" 'dirvish)
