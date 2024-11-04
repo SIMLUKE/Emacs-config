@@ -32,6 +32,9 @@
   :hook (go-mode . (lambda ()
                      (add-hook 'before-save-hook 'gofmt-before-save nil t))))
 
+(use-package go-snippets
+  :ensure t
+  )
 (defun my-go-hook()
   "Custom go mode hook."
   (setq tab-width 4)

@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-;;; Debugger
+;; Debugger
+
 (use-package dap-mode
   :ensure t
   :commands dap-debug

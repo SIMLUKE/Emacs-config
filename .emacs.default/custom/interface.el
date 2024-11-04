@@ -59,4 +59,22 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+  (custom-set-variables
+   '(mini-frame-show-parameters
+     '((top . 10)
+       (left . 0.5)
+       (width . 200)
+       (height . 200)
+       )
+     )
+   )
+
+(setq default-frame-alist '((left . 0) (width . 141) (fullscreen . fullheight)))
+
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-selectable-prompt t))  ;; Makes the minibuffer prompt part of the completion list
+
 ;;; interface.el ends here
