@@ -20,27 +20,40 @@ cp -r .emacs.tiny/ ~/
 
 echo "This config needs clangd to work, installing."
 PS3="Please select your OS : "
-options=("Arch" "Fedora" "Debian")
+options=("Arch" "Fedora" "Debian" "Ubuntu" "SKIP (will break lsp mode)")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
-        "Fedora")
-            sudo dnf install clang-tools-extra
-            sudo dnf install pyright
-	    break
-            ;;
-        "Arch")
-            sudo pacman -S pyright
-            sudo pacman -S clang
-	    break
-	    ;;
-        "Debian")
-            sudo apt install clang
-            echo "install \"Pyright\" pls"
-	    break
-	    ;;
-        *)
-            echo "Invalid choice. Please select a valid option."
-            ;;
+    "Fedora")
+        sudo dnf install clang-tools-extra
+        sudo dnf install pyright
+        sudo dnf install cmake
+        break
+        ;;
+    "Arch")
+        sudo pacman -S pyright
+        sudo pacman -S clang
+        sudo pacman -S cmake
+        break
+        ;;
+    "Debian")
+        sudo apt install clang
+        sudo apt install cmake
+        echo "install \"Pyright\" pls"
+        break
+        ;;
+    "Ubuntu")
+        sudo apt install clang
+        sudo apt install cmake
+        echo "install \"Pyright\" pls"
+        break
+        ;;
+    "SKIP (will break lsp mode)")
+        echo "Skipped"
+        break
+        ;;
+    *)
+        echo "Invalid choice. Please select a valid option."
+        ;;
     esac
 done
 
@@ -49,29 +62,29 @@ PS3="Please select your terminal interpretor : "
 options=("BASH" "ZSH" "SKIP")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
-        "ZSH")
-            echo "alias ne='emacsclient -nw -s tiny'" >> ~/.zshrc
-            echo "alias VSemacs='emacsclient -nw'" >> ~/.zshrc
-            echo "alias nee='emacsclient -c -s tiny'" >> ~/.zshrc
-            echo "alias VSgui='emacsclient -e'" >> ~/.zshrc
-            source ~/.zshrc
-	    break
-            ;;
-        "BASH")
-            echo "alias ne=\"emacsclient -nw -s tiny\"" >> ~/.bashrc
-            echo "alias VSemacs=\"emacsclient -nw\"" >> ~/.bashrc
-            echo "alias nee=\"emacsclient -c -s tiny\"" >> ~/.bashrc
-            echo "alias VSgui=\"emacsclient -c\"" >> ~/.bashrc
-            source ~/.bashrc
-            break
-	    ;;
-        "SKIP")
-            echo "Skiped"
-            break
-	    ;;
-        *)
-            echo "Invalid choice. Please select a valid option."
-            ;;
+    "ZSH")
+        echo "alias ne='emacsclient -nw -s tiny'" >>~/.zshrc
+        echo "alias VSemacs='emacsclient -nw'" >>~/.zshrc
+        echo "alias nee='emacsclient -c -s tiny'" >>~/.zshrc
+        echo "alias VSgui='emacsclient -c'" >>~/.zshrc
+        source ~/.zshrc
+        break
+        ;;
+    "BASH")
+        echo "alias ne=\"emacsclient -nw -s tiny\"" >>~/.bashrc
+        echo "alias VSemacs=\"emacsclient -nw\"" >>~/.bashrc
+        echo "alias nee=\"emacsclient -c -s tiny\"" >>~/.bashrc
+        echo "alias VSgui=\"emacsclient -c\"" >>~/.bashrc
+        source ~/.bashrc
+        break
+        ;;
+    "SKIP")
+        echo "Skiped"
+        break
+        ;;
+    *)
+        echo "Invalid choice. Please select a valid option."
+        ;;
     esac
 done
 

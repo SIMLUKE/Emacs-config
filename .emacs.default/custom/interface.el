@@ -77,4 +77,6 @@
   (ivy-mode 1)
   (setq ivy-use-selectable-prompt t))  ;; Makes the minibuffer prompt part of the completion list
 
+(add-to-list 'custom-theme-load-path "~/.emacs.default/custom/themes/")
+
 ;;; interface.el ends here
