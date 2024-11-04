@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./conf_gen.sh
+
 read -p "This installation will place your old config inside a old folder do you wish to continue ? (y/n): " pushChoice
 if [ "$pushChoice" = "y" ]; then
     rm -rf ~/old_emacs
