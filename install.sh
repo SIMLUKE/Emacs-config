@@ -38,13 +38,13 @@ select commitPrefix in "${options[@]}"; do
         break
         ;;
     "Debian")
-        sudo apt install clang
+        sudo apt install clangd
         sudo apt install cmake
         echo "install \"Pyright\" pls"
         break
         ;;
     "Ubuntu")
-        sudo apt install clang
+        sudo apt install clangd
         sudo apt install cmake
         echo "install \"Pyright\" pls"
         break
