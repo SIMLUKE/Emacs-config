@@ -65,6 +65,7 @@ options=("BASH" "ZSH" "SKIP")
 select commitPrefix in "${options[@]}"; do
     case $commitPrefix in
     "ZSH")
+        echo "alias emacs='emacs -Q'" >>~/.zshrc
         echo "alias ne='emacsclient -nw -s tiny'" >>~/.zshrc
         echo "alias VSemacs='emacsclient -nw'" >>~/.zshrc
         echo "alias nee='emacsclient -c -s tiny'" >>~/.zshrc
@@ -73,6 +74,7 @@ select commitPrefix in "${options[@]}"; do
         break
         ;;
     "BASH")
+        echo "alias emacs=\"emacs -Q\"" >>~/.bashrc
         echo "alias ne=\"emacsclient -nw -s tiny\"" >>~/.bashrc
         echo "alias VSemacs=\"emacsclient -nw\"" >>~/.bashrc
         echo "alias nee=\"emacsclient -c -s tiny\"" >>~/.bashrc
