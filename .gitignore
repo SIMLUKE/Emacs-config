@@ -3,3 +3,4 @@
 *~
 .#*
 *.html
+.emacs.default/own_conf/conf.el
