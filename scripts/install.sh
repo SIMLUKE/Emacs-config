@@ -1,12 +1,23 @@
 #!/bin/bash
 
-./conf_gen.sh
+source ./scripts/funcs.sh
+
+./scripts/conf_gen.sh
 
 read -p "This installation will place your old config inside a old folder do you wish to continue ? (y/n): " pushChoice
 if [ "$pushChoice" = "y" ]; then
-    rm -rf ~/old_emacs
-    mkdir ~/old_emacs
-    mv ~/.emacs* ~/old_emacs
+    if [ ! -d $HOME/old_emacs ]; then
+        mkdir $HOME/old_emacs
+    fi
+    if test -n "$(find $HOME -maxdepth 1 -name '.emacs*' -print -quit)"; then
+        latestconfig=$(ls $HOME/old_emacs | grep config | sed -n 's/^config//p' | sort -n | tail -1)
+        newconfig=$((latestconfig + 1))
+
+        new_old_dir="$HOME/old_emacs/config$newconfig"
+        mkdir $new_old_dir
+
+        mv $HOME/.emacs* $new_old_dir
+    fi
 else
     echo "Aborted."
     exit
@@ -20,44 +31,7 @@ cp .emacs-profiles.el ~/
 cp -r .emacs.default/ ~/
 cp -r .emacs.tiny/ ~/
 
-echo "This config needs clangd to work, installing."
-PS3="Please select your OS : "
-options=("Arch" "Fedora" "Debian" "Ubuntu" "SKIP (will break lsp mode)")
-select commitPrefix in "${options[@]}"; do
-    case $commitPrefix in
-    "Fedora")
-        sudo dnf install clang-tools-extra
-        sudo dnf install pyright
-        sudo dnf install cmake
-        break
-        ;;
-    "Arch")
-        sudo pacman -S pyright
-        sudo pacman -S clang
-        sudo pacman -S cmake
-        break
-        ;;
-    "Debian")
-        sudo apt install clangd
-        sudo apt install cmake
-        echo "install \"Pyright\" pls"
-        break
-        ;;
-    "Ubuntu")
-        sudo apt install clangd
-        sudo apt install cmake
-        echo "install \"Pyright\" pls"
-        break
-        ;;
-    "SKIP (will break lsp mode)")
-        echo "Skipped"
-        break
-        ;;
-    *)
-        echo "Invalid choice. Please select a valid option."
-        ;;
-    esac
-done
+install_dependencies
 
 echo "Adding the aliases to your dot config."
 PS3="Please select your terminal interpretor : "
@@ -93,5 +67,5 @@ select commitPrefix in "${options[@]}"; do
 done
 
 echo "Installation done, starting emacs with restart_emacs.sh script :"
-./restart_emacs.sh
+./scripts/restart_emacs.sh
 echo "I hope you read the README.md or else this is going to be a bad install for you ..."

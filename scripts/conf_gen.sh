@@ -4,6 +4,8 @@ echo "Generating personnal config file"
 
 conf_file=.emacs.default/own_conf/conf.el
 
+rm $conf_file
+
 cat ./own_conf_template/top.txt >>$conf_file
 
 cat ./own_conf_template/middle.txt >>$conf_file
